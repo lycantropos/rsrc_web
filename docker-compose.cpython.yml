@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  rsrc_web-cpython:
+    build:
+      context: .
+      args:
+      - PYTHON_IMAGE=${CPYTHON_IMAGE_NAME}
+      - PYTHON_IMAGE_VERSION=${CPYTHON_IMAGE_VERSION}
+    image: lycantropos/rsrc_web-cpython:0.0.0
+    volumes:
+      - ./rsrc_web/:/opt/rsrc_web/rsrc_web/
+      - ./tests/:/opt/rsrc_web/tests/
+      - ./README.md:/opt/rsrc_web/README.md
+      - ./setup.py:/opt/rsrc_web/setup.py
+      - ./setup.cfg:/opt/rsrc_web/setup.cfg
+    entrypoint: python3
+    command: setup.py test
