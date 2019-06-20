@@ -1,5 +1,5 @@
 rsrc_web
-===========
+========
 
 [![](https://travis-ci.com/lycantropos/rsrc_web.svg?branch=master)](https://travis-ci.com/lycantropos/rsrc_web "Travis CI")
 [![](https://dev.azure.com/azatibrakov/rsrc_web/_apis/build/status/lycantropos.rsrc_web?branchName=master)](https://dev.azure.com/azatibrakov/rsrc_web/_build/latest?definitionId=2&branchName=master "Azure Pipelines")
@@ -45,6 +45,16 @@ Download the latest version from `GitHub` repository
 git clone https://github.com/lycantropos/rsrc_web.git
 cd rsrc_web
 ```
+
+Install dependencies:
+- with `CPython`
+  ```bash
+  python -m pip install -r requirements.txt
+  ```
+- with `PyPy`
+  ```bash
+  pypy -m pip install -r requirements.txt
+  ```
 
 Install:
 - with `CPython`
@@ -108,15 +118,20 @@ as separate pull request.
 
 ### Running tests
 
-Plain:
+Install dependencies:
 - with `CPython`
   ```bash
-  python setup.py test
+  python -m pip install -r requirements-tests.txt
   ```
 - with `PyPy`
   ```bash
-  pypy setup.py test
+  pypy -m pip install -r requirements-tests.txt
   ```
+
+Plain
+```bash
+pytest
+```
 
 Inside `Docker` container:
 - with `CPython`

@@ -1,3 +1,3 @@
-"""Python project template."""
+"""`rsrc` plugin for working with web resources."""
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
