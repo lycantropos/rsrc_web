@@ -8,10 +8,10 @@ import rsrc_web
 from rsrc_web import base
 
 plugins_entry_points = [
-    plugins.to_entry_point(id_=plugins.to_id(''),
+    plugins.to_entry_point(id_=plugins.to_id('http'),
                            module_name=base.__name__,
                            function_name=base.deserialize.__qualname__),
-    plugins.to_entry_point(id_=plugins.to_id('file'),
+    plugins.to_entry_point(id_=plugins.to_id('https'),
                            module_name=base.__name__,
                            function_name=base.deserialize.__qualname__),
 ]

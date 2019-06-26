@@ -16,10 +16,11 @@ install:
   - python -m pip install codecov
   - python -m pip install -r requirements-tests.txt
   - python -m pip install -r requirements.txt
-  - python -m pip install -e .
 
 script:
   - pytest
+  - python -m pip install -e .
+  - python -m doctest README.md
 
 after_success:
   - python -m codecov -f coverage.xml -X gcov

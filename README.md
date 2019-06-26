@@ -66,6 +66,24 @@ Install:
   pypy setup.py install
   ```
 
+Usage
+-----
+```python
+>>> from rsrc.base import deserialize
+>>> readable_resource = deserialize('https://postman-echo.com/get')
+>>> readable_resource.exists()
+True
+>>> writable_resource = deserialize('https://postman-echo.com/post')
+>>> writable_resource.exists()
+False
+>>> writable_resource.receive(readable_resource)
+>>> import json
+>>> file = readable_resource.open(json={'some_param': 1})
+>>> json.load(file)['args']
+{'some_param': 1}
+
+```
+
 Development
 -----------
 
