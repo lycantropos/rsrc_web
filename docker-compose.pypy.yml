@@ -7,7 +7,7 @@ services:
       args:
       - PYTHON_IMAGE=${PYPY_IMAGE_NAME}
       - PYTHON_IMAGE_VERSION=${PYPY_IMAGE_VERSION}
-    image: lycantropos/rsrc_web-pypy:0.0.2
+    image: lycantropos/rsrc_web-pypy:0.0.3
     volumes:
       - ./rsrc_web/:/opt/rsrc_web/rsrc_web/
       - ./tests/:/opt/rsrc_web/tests/
@@ -15,5 +15,5 @@ services:
       - ./requirements.txt:/opt/rsrc_web/requirements.txt
       - ./requirements-tests.txt:/opt/rsrc_web/requirements-tests.txt
       - ./setup.py:/opt/rsrc_web/setup.py
-      - ./setup.cfg:/opt/rsrc_web/setup.cfg
+      - ./pytest.ini:/opt/rsrc_web/pytest.ini
     entrypoint: pytest

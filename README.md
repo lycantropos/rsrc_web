@@ -2,7 +2,7 @@ rsrc_web
 ========
 
 [![](https://travis-ci.com/lycantropos/rsrc_web.svg?branch=master)](https://travis-ci.com/lycantropos/rsrc_web "Travis CI")
-[![](https://dev.azure.com/lycantropos/rsrc_web/_apis/build/status/lycantropos.rsrc_web?branchName=master)](https://dev.azure.com/lycantropos/rsrc_web/_build/latest?definitionId=2&branchName=master "Azure Pipelines")
+[![](https://dev.azure.com/lycantropos/rsrc_web/_apis/build/status/lycantropos.rsrc_web?branchName=master)](https://dev.azure.com/lycantropos/rsrc_web/_build/latest?definitionId=6&branchName=master "Azure Pipelines")
 [![](https://codecov.io/gh/lycantropos/rsrc_web/branch/master/graph/badge.svg)](https://codecov.io/gh/lycantropos/rsrc_web "Codecov")
 [![](https://img.shields.io/github/license/lycantropos/rsrc_web.svg)](https://github.com/lycantropos/rsrc_web/blob/master/LICENSE "License")
 [![](https://badge.fury.io/py/rsrc-web.svg)](https://badge.fury.io/py/rsrc-web "PyPI")

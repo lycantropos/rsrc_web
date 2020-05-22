@@ -61,13 +61,13 @@ class WebStream(FileLikeStream):
         return io.TextIOWrapper(binary_stream,
                                 encoding=encoding)
 
-    def send(self, destination: Base, **kwargs: Any) -> None:
+    def send(self, destination: Stream, **kwargs: Any) -> None:
         if not isinstance(destination, Stream):
             raise TypeError('Unsupported destination type: {type}.'
                             .format(type=type(destination)))
         destination.receive(self, **kwargs)
 
-    def receive(self, source: Base, **kwargs: Any) -> None:
+    def receive(self, source: FileLikeStream, **kwargs: Any) -> None:
         if not isinstance(source, FileLikeStream):
             raise TypeError('Unsupported source type: {type}.'
                             .format(type=type(source)))

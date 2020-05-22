@@ -1,21 +1,21 @@
-sudo: false
-distro: trusty
+dist: xenial
 
 language: python
 
 matrix:
   include:
-    - python: pypy3.5
+    - python: pypy3.5-6.0.0
+    - python: pypy3.6-7.0.0
     - python: 3.5
     - python: 3.6
     - python: 3.7
-      dist: xenial
-      sudo: true
+    - python: 3.8
 
 install:
-  - python -m pip install codecov
-  - python -m pip install -r requirements-tests.txt
-  - python -m pip install -r requirements.txt
+  - python -m pip install --upgrade pip setuptools
+  - python -m pip install --upgrade codecov
+  - python -m pip install --force-reinstall -r requirements.txt
+  - python -m pip install --force-reinstall -r requirements-tests.txt
 
 script:
   - pytest
@@ -24,3 +24,14 @@ script:
 
 after_success:
   - python -m codecov -f coverage.xml -X gcov
+
+deploy:
+  provider: pypi
+  on:
+    branch: master
+    python: 3.5
+  user: __token__
+  password:
+    secure: p9zcEmP5C994E2NPgeS/lHaxQziTT6oBHjagtXtBL5U/In8ABe0c1Dhu+pWkF7nguuQdQRdYUxo+T4juIax54HfuER5H5QavW8weD+0CK+CVtikIVPuBIVCmOtMZobiXDCLQwmn1bQjyk3HccAXhS39ZUKEeN/8S+CNiiEiiJA4HHl6hNjq/vvaAfTw9zVvfudDohLv2gqbqyjL4mbJu0QoMqt7HzSSpTDEFHwCwNDkmpt5DuUb1PwEi1o5bOqS/9ut9nVOMqdiPPs9aY+RDcNMtuNraUzGWW5OS4G8glcf23ZJPHEpEPnVzRE8g0IXkrz5WEOi1xNYPfIe/1v1JDzlrBIjBTPiJmrhwJs9wERD7EXZTsAPuaJTpklrFV6YD9+8JPwvFEA/gwzVa1G395yBVvvfl/JAinPIAONVGgHOvPolGadGnqYCGEsmd8Ry2tskcx4ecvWs+OYvvXfktOMGjl+M02DV+TXpyeJ/2Y5uJDFq8pVJQxaQfs77E5OhYzXCijtUB4To9A3SPiHoKho+FTvfjBVS0bgO+u5UexLECbwi2aDwy9mtyUG6zrAlyM9nPAZRfXxPiXwBwvX8A+I9q8vcP41FAz2UOk5Ll36C4BiQKSl4hM2xAERhfve9PRhPYzoOm2b158/s4HtWR0ZxFOYJ2I2wuXEWYUa7rXtY=
+  distributions: sdist bdist_wheel
+  skip_existing: true
